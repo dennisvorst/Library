@@ -1,0 +1,43 @@
+<!-- Background of the login page -->
+body {
+    min-width: 0px;
+    color: #444;
+    font-family: "Open Sans",sans-serif;
+    font-size: 13px;
+    line-height: 1.4em;
+}
+body, html {
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    background: #F1F1F1 none repeat scroll 0% 0%;
+}
+
+<!-- Login form properties -->
+.login form {
+    margin-top: 20px;
+    margin-left: 0px;
+    padding: 26px 24px 46px;
+    background: #FFF none repeat scroll 0% 0%;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.13);
+}
+
+<!-- The menu buttons -->
+div.container{
+	width	: 100%;
+	padding-bottom	: 20px;
+}
+div.container-inner{
+	float	: left;
+ 	padding-right	: 10px;
+}
+
+/* grid table stuff */
+div.cell {
+    display		: inline-block;
+    width		: 160px;
+    height		: 160px;
+    border		: 1px solid green;
+	text-align	: center;
+	margin		: 10px;
+}

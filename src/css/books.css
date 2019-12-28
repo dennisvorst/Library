@@ -1,0 +1,67 @@
+html{
+  height: 100%;
+}
+
+main, body, #outer{
+	height:inherit;	
+}
+
+#backlogcolumn, #inprogresscolumn, #donecolumn{
+	height	: 90%;
+}
+#backlogitems, #inprogressitems, #doneitems{
+	/*
+	- The items should be contained by the column
+	- A scrollbar should be visible if content doesnot fit
+	*/
+	height	: 90%;
+	width	: auto;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.bookcover{
+	height: 100px;
+}
+
+.item{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.item header {
+	color: #fff;
+	text-shadow: #000 0 1px;
+	box-shadow: 5px;
+	padding: 5px;
+	background: -moz-linear-gradient(left center, rgb(0,0,0), rgb(79,79,79), rgb(21,21,21));
+	background: -webkit-gradient(linear, left top, right top,
+							   color-stop(0, rgb(0,0,0)),
+							   color-stop(0.50, rgb(79,79,79)),
+							   color-stop(1, rgb(21,21,21)));
+	background: -webkit-linear-gradient(left center, rgb(0,0,0), rgb(79,79,79), rgb(21,21,21));
+	background: -ms-linear-gradient(left center, rgb(0,0,0), rgb(79,79,79), rgb(21,21,21));
+	border-bottom: 1px solid #ddd;
+	-webkit-border-top-left-radius: 10px;
+	-moz-border-radius-topleft: 10px;
+	-ms-border-radius-topleft: 10px;
+	border-top-left-radius: 10px;
+	-webkit-border-top-right-radius: 10px;
+	-ms-border-top-right-radius: 10px;
+	-moz-border-radius-topright: 10px;
+	border-top-right-radius: 10px;
+}
+
+/* on anything smaller than a Small Devices, Tablets make the bookcover extra large */
+@media only screen and (max-width : 992px) {
+	.bookcover{
+		height: 400px;
+	}
+	.booktitle{
+		text-align: center;
+	}
+	/* increase the font size of everything in the body */
+	body, h1, h2, h3{
+		font-size: 4vh;
+	}
+}
