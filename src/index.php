@@ -266,33 +266,6 @@ function createBacklogTable($books, $count, $titlebuttonshow){
 <?php
 }
 
-function createCollapsibleTable($db, $admin, $type, $title, $switchname){
-?>
-    <table>
-        <tr>
-            <td>
-                <a id="displayBacklog" href="javascript:toggleRows('<?php echo $switchname; ?>', 'display<?php echo $switchname; ?>');" ><i class="fa fa-plus-square-o fa-3x" aria-hidden="true"></i></a>
-            </td>
-            <td>
-                <h1 class="text-center"><?php echo $title; ?></h1>
-            </td>
-        </tr>
-        <tr id="<?php echo $switchname; ?>" style="display: none">
-            <td colspan="2">
-                <!-- Titles -->
-                <div>
-                <!-- Start getting the backlog items -->
-                <?php
-                echo get_books($db, $admin, $type);
-                ?>
-                <!-- Done getting the backlog items -->
-                </div>
-            </td>
-        </tr>
-    </table>
-<?php	
-}
-
 function createAdminPart($cdlanguage){
 	?>
     <form action="administrator/submit_book.php" enctype="multipart/form-data" method="POST">

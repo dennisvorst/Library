@@ -1,20 +1,22 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.9
--- http://www.phpmyadmin.net
+-- version 4.8.4
+-- https://www.phpmyadmin.net/
 --
--- Machine: localhost
--- Gegenereerd op: 28 dec 2019 om 10:30
--- Serverversie: 5.6.29
--- PHP-versie: 5.3.29
+-- Host: 127.0.0.1
+-- Gegenereerd op: 28 dec 2019 om 11:32
+-- Serverversie: 10.1.37-MariaDB
+-- PHP-versie: 7.3.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `library`
@@ -34,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `authors` (
   `idbook` int(11) NOT NULL,
   `idperson` int(11) NOT NULL,
   PRIMARY KEY (`idauthor`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=255 ;
+) ENGINE=InnoDB AUTO_INCREMENT=255 DEFAULT CHARSET=latin1;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `authors`
@@ -193,7 +195,7 @@ CREATE TABLE IF NOT EXISTS `books` (
   PRIMARY KEY (`idbook`),
   KEY `nmtitle` (`nmtitle`,`nmauthor`),
   KEY `cdlanguage` (`cdlanguage`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COMMENT='Books in my library' AUTO_INCREMENT=140 ;
+) ENGINE=InnoDB AUTO_INCREMENT=140 DEFAULT CHARSET=latin1 COMMENT='Books in my library';
 
 --
 -- Gegevens worden geëxporteerd voor tabel `books`
@@ -250,14 +252,14 @@ INSERT INTO `books` (`idbook`, `cdkeep`, `nmtitle`, `nmsubtitle`, `nmauthor`, `n
 (51, 1, 'SCRUM', 'A revolutionary approach to building teams, beating deadlines and boosting productivity', 'Dr. Jeff Sutherland', 238, 9781847941091, 'EN', 'D', '2016-12-22', '2016-12-22', 0, NULL),
 (52, 1, 'A Christmas Carol and Other Christmas Writings', '', 'Charles Dickens', 272, 9780141195858, 'EN', 'I', '2017-12-20', NULL, 0, NULL),
 (53, 1, 'The Picture of Dorian Gray', '', 'Oscar Wilde', 252, 9780141442464, 'NL', 'B', '2018-09-30', NULL, 0, NULL),
-(55, 1, 'Alice''s Adventures in Wonderland and Through the Looking Glass', '', 'Lewis Caroll', 358, 9780141192468, 'EN', 'B', NULL, NULL, 0, NULL),
+(55, 1, 'Alice\'s Adventures in Wonderland and Through the Looking Glass', '', 'Lewis Caroll', 358, 9780141192468, 'EN', 'B', NULL, NULL, 0, NULL),
 (56, 1, 'Het begin van iets', '', 'Siegfried Lenz', 127, 9789461640321, 'NL', 'D', '2017-01-05', '2017-01-05', 0, NULL),
 (57, 1, 'Bevrijd door liefde', '', 'Jan Geurtz', 1, 9789026327926, 'NL', 'D', '2017-05-16', '2017-05-16', 0, NULL),
 (58, 1, 'Thomas Dekker - Mijn Gevecht', '', 'Thijs Zonneveld', 224, 9789048835157, 'NL', 'D', '2017-01-15', '2017-01-15', 0, NULL),
 (59, 1, 'The Secret', 'Daily Teachings', 'Rhonda Byrne', 365, 9781471130618, 'NL', 'B', NULL, NULL, 0, NULL),
 (60, 1, 'The Stories of Vladimir Nabokov', '', 'Vladimir Nabokov', 682, 9780679729976, 'NL', 'I', '2018-08-07', NULL, 0, NULL),
 (61, 1, 'Het schrijven van een roman', 'Levensechte personages, overtuigende decors en beeldend taalgebruik', 'Arie Storm ', 128, 978021456959, 'NL', 'D', '2017-04-06', '2017-04-06', 0, NULL),
-(62, 1, '''t Jagthuys', '', 'Merijn de Boer', 237, 9789021400280, 'NL', 'D', '2018-02-01', '2018-02-08', 0, NULL),
+(62, 1, '\'t Jagthuys', '', 'Merijn de Boer', 237, 9789021400280, 'NL', 'D', '2018-02-01', '2018-02-08', 0, NULL),
 (63, 1, 'De verlossing van Liesbeth Bede', '', 'Sophie Zijlstra', 384, 9789021403458, 'NL', 'D', '2017-05-16', '2017-05-16', 0, NULL),
 (64, 1, 'Margot', '', 'Sophie Zijlstra', 243, 9789021404974, 'NL', 'B', NULL, NULL, 0, NULL),
 (66, 1, 'Making a Good Script Great', 'A Guide For Writing and Rewriting by Hollywood Consultant', 'Linda Seger', 252, 9781935247012, 'EN', 'D', '2017-08-02', '2017-08-02', 0, NULL),
@@ -318,13 +320,13 @@ INSERT INTO `books` (`idbook`, `cdkeep`, `nmtitle`, `nmsubtitle`, `nmauthor`, `n
 (122, 1, 'complete collected short stories', 'Volume One', 'Roald Dahl', 596, 9781405910101, 'EN', 'D', '2018-08-31', '2018-09-30', 0, NULL),
 (123, 1, 'The Complete Short Stories 2', 'Volume Two', 'Roald Dahl', 802, 9781405910118, 'EN', 'D', '2018-09-30', '2018-10-25', 0, NULL),
 (124, 1, 'TA elke dag', '', ' Marijke Arendsen Hein', 75, 9789088500633, 'NL', 'D', '2018-11-15', '2018-11-15', 0, NULL),
-(125, 1, 'Millennium 4 - Wat ons niet zal doden', 'The Girl in the Spider''s Web', 'David Lagercrantz', 448, 9789056726171, 'NL', 'D', '2018-12-04', '2018-12-04', 0, NULL),
+(125, 1, 'Millennium 4 - Wat ons niet zal doden', 'The Girl in the Spider\'s Web', 'David Lagercrantz', 448, 9789056726171, 'NL', 'D', '2018-12-04', '2018-12-04', 0, NULL),
 (126, 1, 'Mythos', 'De griekse mythen herverteld', 'Stephen Fry', 448, 9789400406254, 'NL', 'D', '2018-12-04', '2018-12-13', 0, NULL),
 (127, 1, 'Let op mijn woorden', '', 'Griet op de Beeck', 415, 9789044636161, 'NL', 'D', '2019-12-26', '2019-12-26', 0, NULL),
 (128, 1, 'Hoe overleef ik moeilijke mensen ', '', 'Jorg Bender', 176, 9789023954477, 'NL', 'D', '2019-12-26', '2019-12-26', 0, NULL),
 (129, 1, 'Everything is fucked', 'a book about hope', 'Mark Manson', 273, 9780062888464, 'EN', 'D', '2019-12-26', '2019-12-26', 0, NULL),
 (130, 1, 'The order of the day', '', 'Eric Vuillard', 129, 9781509889976, 'EN', 'D', '2019-12-26', '2019-12-26', 0, NULL),
-(131, 1, 'The handmaid''s tale', '', 'Margaret Atwood', 320, 9781784874872, 'EN', 'D', '2019-12-26', '2019-12-26', 0, NULL),
+(131, 1, 'The handmaid\'s tale', '', 'Margaret Atwood', 320, 9781784874872, 'EN', 'D', '2019-12-26', '2019-12-26', 0, NULL),
 (132, 1, 'Hoe schrijf ik zelf een waanzinnig boek', '', 'Andy Griffiths, Terry Denton', 205, 9789401438353, 'NL', 'D', '2019-12-26', '2019-12-26', 0, NULL),
 (133, 1, 'Treasure Island and The Ebb-Tide', '', 'Robert Louis Stevenson', 400, 9780141199146, 'EN', 'D', '2019-12-26', '2019-12-26', 0, NULL),
 (134, 1, 'One Good Deed', '', 'David Baldacci', 432, 9781529027525, 'EN', 'D', '2019-12-26', '2019-12-26', 0, NULL),
@@ -333,6 +335,149 @@ INSERT INTO `books` (`idbook`, `cdkeep`, `nmtitle`, `nmsubtitle`, `nmauthor`, `n
 (137, 1, 'The Comedy Bible', '', 'Judy Carter', 367, 9780743201254, 'EN', 'D', '2019-12-26', '2019-12-26', 0, NULL),
 (138, 1, 'The Raven and the Philosophy of Composition', '', 'Edgar Allan Poe, Galen J Perrett ', 64, 9783337364670, 'EN', 'D', '2019-12-26', '2019-12-26', 0, NULL),
 (139, 1, 'Perks of being a wallflower', '', 'Stephen Chbosky', 240, 9781471116148, 'EN', 'D', '2019-12-26', '2019-12-26', 0, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `bookstates`
+--
+
+DROP TABLE IF EXISTS `bookstates`;
+CREATE TABLE IF NOT EXISTS `bookstates` (
+  `idbookstate` int(11) NOT NULL AUTO_INCREMENT,
+  `idbook` int(11) NOT NULL,
+  `cdkeep` tinyint(4) NOT NULL DEFAULT '1',
+  `cdlanguage` char(3) NOT NULL DEFAULT 'NL',
+  `cdstatus` char(1) NOT NULL DEFAULT 'B',
+  `dtstart` date DEFAULT NULL,
+  `dtfinished` date DEFAULT NULL,
+  `ftreview` text,
+  PRIMARY KEY (`idbookstate`)
+) ENGINE=InnoDB AUTO_INCREMENT=129 DEFAULT CHARSET=latin1 COMMENT='State of a particular book in my library';
+
+--
+-- Gegevens worden geëxporteerd voor tabel `bookstates`
+--
+
+INSERT INTO `bookstates` (`idbookstate`, `idbook`, `cdkeep`, `cdlanguage`, `cdstatus`, `dtstart`, `dtfinished`, `ftreview`) VALUES
+(1, 1, 1, 'NL', 'D', '2016-01-01', '2016-01-01', NULL),
+(2, 2, 1, 'EN', 'B', '2018-11-15', NULL, NULL),
+(3, 3, 1, 'EN', 'D', '2016-01-01', '2016-01-01', NULL),
+(4, 5, 1, 'NL', 'D', '2016-01-01', '2016-01-01', NULL),
+(5, 6, 1, 'NL', 'D', '2016-01-01', '2016-01-01', NULL),
+(6, 7, 1, 'EN', 'D', '2016-01-01', '2016-01-01', NULL),
+(7, 8, 1, 'NL', 'D', '2016-01-01', '2016-01-01', NULL),
+(8, 9, 1, 'NL', 'D', '2016-01-01', '2016-01-01', NULL),
+(9, 10, 1, 'NL', 'D', '2016-01-01', '2016-01-01', NULL),
+(10, 13, 1, 'NL', 'D', '2016-01-01', '2016-01-01', NULL),
+(11, 14, 1, 'EN', 'D', '2015-01-01', '2015-01-01', NULL),
+(12, 15, 0, 'NL', 'D', '2016-07-22', '2016-07-22', NULL),
+(13, 16, 0, 'NL', 'D', '2016-01-01', '2016-01-01', NULL),
+(14, 17, 1, 'NL', 'D', '2016-01-01', '2016-01-01', NULL),
+(15, 18, 1, 'EN', 'D', '2016-08-14', '2016-08-14', NULL),
+(16, 19, 1, 'EN', 'D', '2016-08-10', '2016-08-10', NULL),
+(17, 20, 1, 'NL', 'D', '2016-08-10', '2016-08-10', NULL),
+(18, 21, 1, 'EN', 'D', '2016-08-12', '2016-08-12', NULL),
+(19, 22, 1, 'NL', 'D', '2016-08-17', '2016-08-17', NULL),
+(20, 23, 1, 'EN', 'D', '2015-01-01', '2015-01-01', NULL),
+(21, 24, 1, 'NL', 'D', '2015-01-01', '2015-01-01', NULL),
+(22, 26, 1, 'EN', 'D', '2015-01-01', '2015-01-01', NULL),
+(23, 27, 1, 'EN', 'D', '2015-01-01', '2015-01-01', NULL),
+(24, 28, 1, 'EN', 'D', '2015-01-01', '2015-01-01', NULL),
+(25, 29, 1, 'EN', 'D', '2015-01-01', '2015-01-01', NULL),
+(26, 30, 1, 'NL', 'D', '2015-01-01', '2015-01-01', NULL),
+(27, 31, 1, 'NL', 'D', '2015-01-01', '2015-01-01', NULL),
+(28, 32, 1, 'EN', 'D', '2015-01-01', '2015-01-01', NULL),
+(29, 33, 1, 'EN', 'D', '2015-01-01', '2015-01-01', NULL),
+(30, 34, 1, 'EN', 'D', '2015-01-01', '2015-01-01', NULL),
+(31, 35, 1, 'EN', 'D', '2015-01-01', '2015-01-01', NULL),
+(32, 36, 1, 'NL', 'D', '2015-01-01', '2015-01-01', NULL),
+(33, 37, 1, 'EN', 'D', '2015-01-01', '2015-01-01', NULL),
+(34, 38, 1, 'EN', 'D', '2015-01-01', '2015-01-01', NULL),
+(35, 39, 1, 'NL', 'D', '2015-01-01', '2015-01-01', NULL),
+(36, 40, 1, 'EN', 'D', '2015-01-01', '2015-01-01', NULL),
+(37, 41, 1, 'EN', 'D', '2016-12-02', '2016-12-02', NULL),
+(38, 42, 1, 'EN', 'D', '2016-12-18', '2016-12-18', NULL),
+(39, 44, 1, 'NL', 'D', '2018-07-15', '2018-07-15', NULL),
+(40, 45, 1, 'NL', 'D', '2017-11-23', '2017-11-23', NULL),
+(41, 46, 1, 'EN', 'D', '2016-12-11', '2016-12-11', NULL),
+(42, 49, 1, 'EN', 'B', '2018-12-25', NULL, NULL),
+(43, 51, 1, 'EN', 'D', '2016-12-22', '2016-12-22', NULL),
+(44, 52, 1, 'EN', 'I', '2017-12-20', NULL, NULL),
+(45, 53, 1, 'NL', 'B', '2018-09-30', NULL, NULL),
+(46, 56, 1, 'NL', 'D', '2017-01-05', '2017-01-05', NULL),
+(47, 57, 1, 'NL', 'D', '2017-05-16', '2017-05-16', NULL),
+(48, 58, 1, 'NL', 'D', '2017-01-15', '2017-01-15', NULL),
+(49, 60, 1, 'NL', 'I', '2018-08-07', NULL, NULL),
+(50, 61, 1, 'NL', 'D', '2017-04-06', '2017-04-06', NULL),
+(51, 62, 1, 'NL', 'D', '2018-02-01', '2018-02-08', NULL),
+(52, 63, 1, 'NL', 'D', '2017-05-16', '2017-05-16', NULL),
+(53, 66, 1, 'EN', 'D', '2017-08-02', '2017-08-02', NULL),
+(54, 67, 1, 'EN', 'D', '2017-05-16', '2017-05-16', NULL),
+(55, 68, 1, 'NL', 'D', '2017-08-02', '2017-08-02', NULL),
+(56, 70, 1, 'EN', 'D', '2017-09-13', '2017-09-13', NULL),
+(57, 71, 1, 'EN', 'D', '2017-10-10', '2017-10-10', NULL),
+(58, 72, 1, 'EN', 'D', '2017-10-10', '2017-10-10', NULL),
+(59, 73, 1, 'EN', 'D', '2017-08-02', '2017-08-02', NULL),
+(60, 74, 1, 'EN', 'D', '2017-08-22', '2017-08-22', NULL),
+(61, 75, 1, 'NL', 'D', '2017-11-22', '2017-11-22', NULL),
+(62, 76, 1, 'NL', 'D', '2017-11-22', '2017-11-22', NULL),
+(63, 77, 1, 'NL', 'D', '2017-09-13', '2017-09-13', NULL),
+(64, 78, 1, 'NL', 'D', '2017-08-22', '2017-08-22', NULL),
+(65, 79, 1, 'NL', 'D', '2017-11-03', '2017-11-03', NULL),
+(66, 80, 1, 'NL', 'D', '2017-08-22', '2017-08-22', NULL),
+(67, 81, 1, 'NL', 'D', '2017-08-22', '2017-08-22', NULL),
+(68, 82, 1, 'NL', 'D', '2017-10-17', '2017-10-17', NULL),
+(69, 83, 1, 'NL', 'D', '2017-10-17', '2017-10-17', NULL),
+(70, 85, 1, 'NL', 'D', '2017-11-03', '2017-11-03', NULL),
+(71, 86, 1, 'NL', 'D', '2017-12-01', '2017-12-01', NULL),
+(72, 87, 1, 'NL', 'D', '2017-12-01', '2017-12-01', NULL),
+(73, 88, 1, 'NL', 'D', '2017-12-21', '2017-12-21', NULL),
+(74, 89, 1, 'EN', 'D', '2017-12-22', '2017-12-22', NULL),
+(75, 90, 1, 'NL', 'D', '2018-01-30', '2018-01-31', NULL),
+(76, 91, 1, 'NL', 'D', '2018-01-02', '2018-01-04', NULL),
+(77, 92, 1, 'NL', 'D', '2018-01-04', '2018-01-12', NULL),
+(78, 93, 1, 'NL', 'D', '2018-01-16', '2018-01-27', NULL),
+(79, 94, 1, 'NL', 'D', '2018-07-15', '2018-08-03', NULL),
+(80, 95, 1, 'EN', 'D', '2018-01-12', '2018-01-17', NULL),
+(81, 96, 1, 'EN', 'D', '2018-01-23', '2018-02-12', NULL),
+(82, 97, 1, 'NL', 'D', '2018-01-27', '2018-01-30', NULL),
+(83, 98, 1, 'NL', 'D', '2018-02-08', '2018-02-12', NULL),
+(84, 99, 1, 'NL', 'D', '2018-02-13', '2018-08-31', NULL),
+(85, 100, 1, 'NL', 'D', '2018-03-23', '2018-03-23', NULL),
+(86, 101, 1, 'NL', 'D', '2018-03-23', '2018-03-23', NULL),
+(87, 102, 1, 'NL', 'D', '2018-03-23', '2018-03-26', NULL),
+(88, 103, 1, 'EN', 'D', '2018-03-27', '2018-04-29', NULL),
+(89, 104, 1, 'EN', 'I', '2018-04-29', NULL, NULL),
+(90, 105, 1, 'EN', 'D', '2018-04-29', '2018-05-14', NULL),
+(91, 106, 1, 'EN', 'D', '2018-07-15', '2018-07-15', NULL),
+(92, 107, 1, 'NL', 'D', '2018-05-14', '2018-07-15', NULL),
+(93, 108, 1, 'NL', 'D', '2018-07-15', '2018-07-15', NULL),
+(94, 110, 1, 'NL', 'D', '2018-08-03', '2018-08-03', NULL),
+(95, 111, 1, 'EN', 'D', '2018-08-03', '2018-08-07', NULL),
+(96, 112, 1, 'NL', 'D', '2018-08-07', '2018-08-16', NULL),
+(97, 113, 1, 'NL', 'D', '2018-08-11', '2018-08-23', NULL),
+(98, 114, 1, 'NL', 'D', '2018-08-11', '2018-08-11', NULL),
+(99, 115, 1, 'NL', 'D', '2018-10-25', '2018-11-15', NULL),
+(100, 122, 1, 'EN', 'D', '2018-08-31', '2018-09-30', NULL),
+(101, 123, 1, 'EN', 'D', '2018-09-30', '2018-10-25', NULL),
+(102, 124, 1, 'NL', 'D', '2018-11-15', '2018-11-15', NULL),
+(103, 125, 1, 'NL', 'D', '2018-12-04', '2018-12-04', NULL),
+(104, 126, 1, 'NL', 'D', '2018-12-04', '2018-12-13', NULL),
+(105, 127, 1, 'NL', 'D', '2019-12-26', '2019-12-26', NULL),
+(106, 128, 1, 'NL', 'D', '2019-12-26', '2019-12-26', NULL),
+(107, 129, 1, 'EN', 'D', '2019-12-26', '2019-12-26', NULL),
+(108, 130, 1, 'EN', 'D', '2019-12-26', '2019-12-26', NULL),
+(109, 131, 1, 'EN', 'D', '2019-12-26', '2019-12-26', NULL),
+(110, 132, 1, 'NL', 'D', '2019-12-26', '2019-12-26', NULL),
+(111, 133, 1, 'EN', 'D', '2019-12-26', '2019-12-26', NULL),
+(112, 134, 1, 'EN', 'D', '2019-12-26', '2019-12-26', NULL),
+(113, 135, 1, 'NL', 'D', '2019-12-26', '2019-12-26', NULL),
+(114, 136, 1, 'EN', 'D', '2019-12-26', '2019-12-26', NULL),
+(115, 137, 1, 'EN', 'D', '2019-12-26', '2019-12-26', NULL),
+(116, 138, 1, 'EN', 'D', '2019-12-26', '2019-12-26', NULL),
+(117, 139, 1, 'EN', 'D', '2019-12-26', '2019-12-26', NULL),
+(128, 1, 1, 'NL', 'B', '2019-12-28', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -368,7 +513,7 @@ CREATE TABLE IF NOT EXISTS `persons` (
   `name` varchar(50) NOT NULL,
   `gender` char(1) NOT NULL DEFAULT 'M',
   PRIMARY KEY (`idperson`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=108 ;
+) ENGINE=InnoDB AUTO_INCREMENT=108 DEFAULT CHARSET=latin1;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `persons`
@@ -497,7 +642,7 @@ CREATE TABLE IF NOT EXISTS `userattempts` (
   `nmpassword` varchar(20) NOT NULL,
   `dtlogin` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`iduserattempt`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='User Attempts Table' AUTO_INCREMENT=18 ;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COMMENT='User Attempts Table';
 
 --
 -- Gegevens worden geëxporteerd voor tabel `userattempts`
@@ -535,7 +680,7 @@ CREATE TABLE IF NOT EXISTS `userpasswords` (
   `nmpassword` int(11) NOT NULL,
   PRIMARY KEY (`iduserpassword`),
   KEY `iduser` (`iduser`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='User Passwords Table' AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='User Passwords Table';
 
 -- --------------------------------------------------------
 
@@ -552,7 +697,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `cdstatus` char(1) NOT NULL DEFAULT 'N',
   PRIMARY KEY (`iduser`),
   UNIQUE KEY `nmuser` (`nmuser`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='User table' AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COMMENT='User table';
 
 --
 -- Gegevens worden geëxporteerd voor tabel `users`
@@ -577,6 +722,7 @@ ALTER TABLE `books`
 --
 ALTER TABLE `userpasswords`
   ADD CONSTRAINT `userpasswords_ibfk_1` FOREIGN KEY (`iduser`) REFERENCES `users` (`iduser`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
