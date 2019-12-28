@@ -7,6 +7,7 @@ ini_set('display_errors', 'On');  //On or Off
 //*********************************************************
 require_once "class/Database.php";
 require_once "class/Books.php";
+
 $db = new DataBase();
 
 /* init */
@@ -369,31 +370,22 @@ function createAdminPart($cdlanguage){
 
 /** data retrieval **/
 function getBooksBacklog($db, $admin, $selected_language){
-	$ftquery 	= "SELECT * FROM books WHERE CDSTATUS = 'B' ";
-	if (!empty($selected_language)){
-		$ftquery 	.= 	"AND cdlanguage = '" . $selected_language . "' ";
-	}
-	$ftquery 	.= "ORDER BY nmtitle, nmsubtitle, nmauthor";
-	$ftrows		= $db->queryDb($ftquery);
+	$booksObj = new Books($db);
+	$ftrows = $booksObj->getLibrary($selected_language);
 
 	return createTiles($admin, $ftrows, $selected_language);
 }
+
 function getBooksInProgress($db, $admin, $selected_language){
-	$ftquery 	= "SELECT * FROM books WHERE CDSTATUS = 'I' ";
-	if (!empty($selected_language)){
-		$ftquery 	.= 	"AND cdlanguage = '" . $selected_language . "' ";
-	}
-	$ftrows		= $db->queryDb($ftquery);
+	$booksObj = new Books($db);
+	$ftrows = $booksObj->getCurrentlyReading($selected_language);
 
 	return createTiles($admin, $ftrows, $selected_language);
 }
+
 function getBooksDone($db, $admin, $selected_language, $titlebuttonshow, $totalbooks, $totalpages){
-	$ftquery 	= "SELECT * FROM books WHERE CDSTATUS = 'D' "; 
-	if (!empty($selected_language)){
-		$ftquery 	.= 	"AND cdlanguage = '" . $selected_language . "' ";
-	}
-	$ftquery	.= "ORDER BY dtfinished DESC";
-	$ftrows		= $db->queryDb($ftquery);
+	$booksObj = new Books($db);
+	$ftrows = $booksObj->getReadBooks($selected_language);
 
 	$years = [];
 	foreach ($ftrows as $ftrow){
@@ -405,22 +397,11 @@ function getBooksDone($db, $admin, $selected_language, $titlebuttonshow, $totalb
 	$html	= "";
 	foreach($years as $year){
 		/* get the totals */
-		$sql = "SELECT COUNT(*) AS books, SUM(nrpages) AS pages FROM books WHERE dtfinished BETWEEN '" . $year . "-01-01' AND '" . $year . "-12-31' ";
-		if (!empty($selected_language)){
-			$sql 	.= 	"AND cdlanguage = '" . $selected_language . "' ";
-		}
-		
-		$result = $db->queryDb($sql);
+		$result = $booksObj->countReadBooksPerYear($selected_language, $year); 
 
 		/* get the books finished that year */
-		$sql = "SELECT * FROM books WHERE CDSTATUS = 'D' AND dtfinished BETWEEN '" . $year . "-01-01' AND '" . $year . "-12-31' ";
-		if (!empty($selected_language)){
-			$sql 	.= 	"AND cdlanguage = '" . $selected_language . "' ";
-		}
-		$sql 	.= "ORDER BY dtfinished DESC";
-		$books = $db->queryDb($sql);
+		$books = $booksObj->getAllBooksReadPerYear($selected_language, $year);
 		
-
 		$html	.= "<table width='100%'>\n";
 		$html	.= "  <tr>\n";
 		$html	.= "    <td class='text-center'>\n";

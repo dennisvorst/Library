@@ -8,3 +8,5 @@ src/class/LinkedIn.php
 src/class/Twitter.php
 src/administrator/test_filter.php
 src/config
+temp
+src/class/config.php

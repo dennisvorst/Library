@@ -64,24 +64,6 @@ if (isset($cdlanguage)){
 } else {
 	$values	.= ", NULL";
 }
-if (isset($cdstatus)){
-	$values	.= ", '" . $cdstatus . "'";
-} else {
-	$values	.= ", NULL";
-}
-
-if (isset($dtstart)){
-	$values	.= ", '" . $dtstart . "'";
-} else {
-	$values	.= ", NULL";
-}
-
-if (isset($dtfinished)){
-	$values	.= ", '" . $dtfinished . "'";
-
-} else {
-	$values	.= ", NULL";
-}
 
 if (isset($ftreview)){
 	$values	.= ", '" . $ftreview . "'";
@@ -89,7 +71,7 @@ if (isset($ftreview)){
 	$values	.= ", NULL";
 }
 
-$sql = "INSERT INTO `boeken`.`books` (`idbook`, `cdkeep`, `nmtitle`, `nmsubtitle`, `nmauthor`, `nrpages`, `nrisbn`, `cdlanguage`, `cdstatus`, `dtstart`, `dtfinished`, `ftreview`) VALUES (" . $values . ")";
+$sql = "INSERT INTO `books` (`idbook`, `cdkeep`, `nmtitle`, `nmsubtitle`, `nmauthor`, `nrpages`, `nrisbn`, `cdlanguage`, `ftreview`) VALUES (" . $values . ")";
 //print_r($sql);
 /* insert the record */
 $id = $db->insertRecord($sql);

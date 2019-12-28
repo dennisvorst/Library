@@ -46,9 +46,9 @@ class DataBase{
 	// constructor
 	function __construct(){
 		/* get username and password */
-		if ("config/config.php")
+		if ("config.php")
 		{
-			include "config/config.php";
+			include "config.php";
 		} else {
 		}
 
