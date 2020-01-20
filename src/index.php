@@ -383,6 +383,18 @@ function getBooksInProgress($db, $admin, $selected_language){
 	return createTiles($admin, $ftrows, $selected_language);
 }
 
+function getNumberOfDays(int $year) : int
+{
+	$start = new DateTime($year . "-01-01");
+	$today = new DateTime();
+	
+	if ($year != $today->format("Y"))
+	{
+		$today = new DateTime($year . "-12-31");
+	}
+	return $today->diff($start)->format("%a");
+}
+
 function getBooksDone($db, $admin, $selected_language, $titlebuttonshow, $totalbooks, $totalpages){
 	$booksObj = new Books($db);
 	$ftrows = $booksObj->getReadBooks($selected_language);
@@ -398,15 +410,18 @@ function getBooksDone($db, $admin, $selected_language, $titlebuttonshow, $totalb
 	foreach($years as $year){
 		/* get the totals */
 		$result = $booksObj->countReadBooksPerYear($selected_language, $year); 
+		$bookcount = $result[0]['books'];
 
 		/* get the books finished that year */
 		$books = $booksObj->getAllBooksReadPerYear($selected_language, $year);
-		
+		$pagescount = $result[0]['pages'];
+		$pagesaverage = number_format(($pagescount / getNumberOfDays($year)), 0);
+
 		$html	.= "<table width='100%'>\n";
 		$html	.= "  <tr>\n";
 		$html	.= "    <td class='text-center'>\n";
 		$html	.= "      <h2>" . $year . "</h2>\n";
-		$html	.= "      <p>" . $result[0]['books'] . $totalbooks . $result[0]['pages'] . $totalpages . "</p>\n";
+		$html	.= "      <p>" . $bookcount . $totalbooks . $pagescount . $totalpages . " (" . $pagesaverage . " p.p.d.)</p>\n";
 		
 		$html	.= "    </td>\n";
 		$html	.= "  </tr>\n";
