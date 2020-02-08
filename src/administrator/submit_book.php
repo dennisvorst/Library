@@ -2,8 +2,8 @@
 ini_set('error_reporting', E_ALL);
 ini_set('display_errors', 'On');  //On or Off
 
-//print_r($_FILES);
-//print_r($_POST);
+print_r($_FILES);
+print_r($_POST);
 
 
 //*********************************************************
@@ -37,7 +37,7 @@ if (isset($nmtitle)){
 } else {
 	$values	.= ", NULL";
 }
-if (isset($nmsubtitle)){
+if (isset($nmsubtitle) && !empty($nmsubtitle)){
 //	$values	.= ", '" . $nmsubtitle . "'";
 	$values	.= ", '" . mysqli_real_escape_string($db->getConnection(), $nmsubtitle) . "'";
 } else {
@@ -72,7 +72,7 @@ if (isset($ftreview)){
 }
 
 $sql = "INSERT INTO `books` (`idbook`, `cdkeep`, `nmtitle`, `nmsubtitle`, `nmauthor`, `nrpages`, `nrisbn`, `cdlanguage`, `ftreview`) VALUES (" . $values . ")";
-//print_r($sql);
+print_r($sql);
 /* insert the record */
 $id = $db->insertRecord($sql);
 
