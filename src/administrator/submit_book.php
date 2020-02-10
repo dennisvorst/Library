@@ -72,7 +72,7 @@ if (isset($ftreview)){
 }
 
 $sql = "INSERT INTO `books` (`idbook`, `cdkeep`, `nmtitle`, `nmsubtitle`, `nmauthor`, `nrpages`, `nrisbn`, `cdlanguage`, `ftreview`) VALUES (" . $values . ")";
-print_r($sql);
+//print_r($sql);
 /* insert the record */
 $id = $db->insertRecord($sql);
 

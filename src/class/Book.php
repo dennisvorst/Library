@@ -216,7 +216,7 @@ class Book
 
 	private function _getStates()
 	{
-		print_r("Book::_getStates</br>\n");
+//		print_r("Book::_getStates</br>\n");
 
 		if (empty($this->_bookstates))
 		{
@@ -234,7 +234,7 @@ class Book
 
 	private function _showStates() : string
 	{
-		print_r("Book::_showStates");
+//		print_r("Book::_showStates");
 
 		$html = "";
 		foreach ($this->_getStates() as $state)
@@ -302,7 +302,7 @@ class Book
 	/** states functions */
 	function startReading() : void
 	{
-		print_r("Book::startReading</br>\n");
+//		print_r("Book::startReading</br>\n");
 		if (!$this->_isReading())
 		{
 			$row['idbook'] = $this->_idbook;
@@ -322,7 +322,7 @@ class Book
 
 	function finishReading() : void
 	{
-		print_r("Book::finishReading</br>\n");
+//		print_r("Book::finishReading</br>\n");
 		if ($this->_isReading())
 		{
 			$state = $this->_getReadingState();
@@ -333,14 +333,14 @@ class Book
 
 	function _isReading() : bool
 	{
-		print_r("Book::_isReading</br>\n");
+//		print_r("Book::_isReading</br>\n");
 		if (!empty($this->_getStates()))
 		{
 			foreach ($this->_getStates() as $state)
 			{
 				if ($state->isReading())
 				{
-					print_r("Book is being read!</br>");
+//					print_r("Book is being read!</br>");
 					return true;
 				}
 			}
