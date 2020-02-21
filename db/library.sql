@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 10 feb 2020 om 08:09
+-- Gegenereerd op: 21 feb 2020 om 17:44
 -- Serverversie: 10.1.37-MariaDB
 -- PHP-versie: 7.3.0
 
@@ -346,7 +346,12 @@ INSERT INTO `books` (`idbook`, `cdkeep`, `nmtitle`, `nmsubtitle`, `nmauthor`, `n
 (159, 1, 'Onder de motorkap van het schrijverschap', 'Het geheim van de schrijver & De blokkade', 'Renate Dorrestein', 392, 9789021406374, 'NL', 0, NULL),
 (160, 1, 'Catch-22', NULL, 'Joseph Heller', 576, 9780099536017, 'EN', 0, NULL),
 (161, 1, 'Een volmaakte vendetta', NULL, 'Roger Jon Ellory', 541, 9789026128776, 'NL', 0, NULL),
-(162, 1, 'Me talk pretty one day', NULL, 'David Sedaris', 288, 9780349113913, 'EN', 0, NULL);
+(162, 1, 'Me talk pretty one day', NULL, 'David Sedaris', 288, 9780349113913, 'EN', 0, NULL),
+(163, 1, 'The Art of Story-Telling', 'With Nearly Half a Hundred Stories', 'Julia Darrow Cowles', 294, 9780343869625, 'EN', 0, NULL),
+(164, 1, 'Enduring Love', 'Now a major motion picture', 'Ian McEwan', 256, 9780099481249, 'EN', 0, NULL),
+(165, 1, 'Be the Boss Everyone Wants to Work For', 'A Guide for New Leaders', 'William A. Gentry', 216, 9781626566255, 'EN', 0, NULL),
+(166, 1, 'Focus AAN/UIT', 'Dicht de 4 concentratielekken en krijg meer gedaan in een wereld vol afleiding', ' Mark Tigchelaar', 224, 9789000359691, 'NL', 0, NULL),
+(167, 1, 'Ragtime', NULL, 'E. L. Doctorow', 288, 9780141188171, 'EN', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -508,7 +513,9 @@ INSERT INTO `bookstates` (`idbookstate`, `idbook`, `dtstart`, `dtfinished`, `ftr
 (149, 160, '2020-02-08', '2020-02-08', NULL),
 (150, 159, '2020-02-08', '2020-02-08', NULL),
 (151, 161, '2020-02-08', '2020-02-10', NULL),
-(152, 162, '2020-02-10', NULL, NULL);
+(152, 162, '2020-02-10', '2020-02-21', NULL),
+(153, 166, '2020-02-21', NULL, NULL),
+(154, 167, '2020-02-21', '2020-02-21', NULL);
 
 -- --------------------------------------------------------
 
@@ -796,13 +803,13 @@ ALTER TABLE `authors`
 -- AUTO_INCREMENT voor een tabel `books`
 --
 ALTER TABLE `books`
-  MODIFY `idbook` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=163;
+  MODIFY `idbook` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=168;
 
 --
 -- AUTO_INCREMENT voor een tabel `bookstates`
 --
 ALTER TABLE `bookstates`
-  MODIFY `idbookstate` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=153;
+  MODIFY `idbookstate` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=155;
 
 --
 -- AUTO_INCREMENT voor een tabel `persons`

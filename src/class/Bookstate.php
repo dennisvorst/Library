@@ -3,6 +3,8 @@ require_once "Database.php";
 
 class Bookstate
 {
+    private $_debug = FALSE;
+
     private $_db;
     private $_idbookstate;
 	private $_idbook;
@@ -42,7 +44,7 @@ class Bookstate
 
     function showState() : string
     {
-        print_r("Bookstates::showState");
+        if ($this->_debug){print_r("Bookstates::showState");} 
 
         $html = "<div class='form-group'>\n";
         $html .= "  <label for='dtstart'>Gestart</label>\n";
@@ -70,14 +72,15 @@ class Bookstate
 
     function finishReading() : void
     {
-        print_r("Bookstate::finishReading</br>\n");
+        if ($this->_debug){print_r("Bookstate::finishReading</br>\n");} 
+
         $sql = "UPDATE bookstates SET dtfinished = '" . date('Y-m-d') . "' WHERE idbookstate = $this->_idbookstate";
         $this->_db->updateDb($sql);
     }
 
     function isReading() : bool
     {
-        print_r("Bookstate::isReading</br>\n");
+        if ($this->_debug){print_r("Bookstate::isReading</br>\n");} 
 
         if ($this->_idbookstate && empty($this->_dtfinished))
         {

@@ -2,10 +2,6 @@
 ini_set('error_reporting', E_ALL);
 ini_set('display_errors', 'On');  //On or Off
 
-print_r($_FILES);
-print_r($_POST);
-
-
 //*********************************************************
 // *** Include Section
 //*********************************************************
@@ -72,7 +68,6 @@ if (isset($ftreview)){
 }
 
 $sql = "INSERT INTO `books` (`idbook`, `cdkeep`, `nmtitle`, `nmsubtitle`, `nmauthor`, `nrpages`, `nrisbn`, `cdlanguage`, `ftreview`) VALUES (" . $values . ")";
-//print_r($sql);
 /* insert the record */
 $id = $db->insertRecord($sql);
 
