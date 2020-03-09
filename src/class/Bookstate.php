@@ -68,6 +68,7 @@ class Bookstate
     function stopReading() : void
     {
         $sql = "DELETE FROM bookstates WHERE idbookstate = $this->_idbookstate";
+        $this->_db->updateDb($sql);
     }
 
     function finishReading() : void

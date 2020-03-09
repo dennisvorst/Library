@@ -14,12 +14,11 @@ $idbook		= $_GET['idbook'];
 $db = new DataBase();
 $bookObj = new Book($db, $idbook);
 
-
 switch($nmaction){
 	case "startReading":
 		$bookObj->startReading();
 		break;
-	case "StopReading":
+	case "stopReading":
 		$bookObj->stopReading();
 		break;
 	case "finishReading":

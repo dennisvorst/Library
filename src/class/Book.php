@@ -237,7 +237,9 @@ class Book
 //		print_r("Book::_showStates");
 
 		$html = "";
-		foreach ($this->_getStates() as $state)
+		$states = $this->_getStates();
+		print_r($states);
+		foreach ($states as $state)
 		{
 			$html .= $state->showState();
 		}

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 21 feb 2020 om 17:44
+-- Gegenereerd op: 09 mrt 2020 om 08:22
 -- Serverversie: 10.1.37-MariaDB
 -- PHP-versie: 7.3.0
 
@@ -351,7 +351,10 @@ INSERT INTO `books` (`idbook`, `cdkeep`, `nmtitle`, `nmsubtitle`, `nmauthor`, `n
 (164, 1, 'Enduring Love', 'Now a major motion picture', 'Ian McEwan', 256, 9780099481249, 'EN', 0, NULL),
 (165, 1, 'Be the Boss Everyone Wants to Work For', 'A Guide for New Leaders', 'William A. Gentry', 216, 9781626566255, 'EN', 0, NULL),
 (166, 1, 'Focus AAN/UIT', 'Dicht de 4 concentratielekken en krijg meer gedaan in een wereld vol afleiding', ' Mark Tigchelaar', 224, 9789000359691, 'NL', 0, NULL),
-(167, 1, 'Ragtime', NULL, 'E. L. Doctorow', 288, 9780141188171, 'EN', 0, NULL);
+(167, 1, 'Ragtime', NULL, 'E. L. Doctorow', 288, 9780141188171, 'EN', 0, NULL),
+(168, 1, 'Now We Shall Be Entirely Free', NULL, 'Andrew Miller', 432, 9781444784664, 'EN', 0, NULL),
+(169, 1, 'De stiefmoeder', NULL, 'Renate Dorrestein', 221, 9789057594601, 'NL', 0, NULL),
+(170, 1, 'A Long Night In Paris', NULL, 'Dov Alfon', 432, 9780857058829, 'EN', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -373,7 +376,6 @@ CREATE TABLE `bookstates` (
 
 INSERT INTO `bookstates` (`idbookstate`, `idbook`, `dtstart`, `dtfinished`, `ftreview`) VALUES
 (1, 1, '2016-01-01', '2016-01-01', NULL),
-(2, 2, '2018-11-15', NULL, NULL),
 (3, 3, '2016-01-01', '2016-01-01', NULL),
 (4, 5, '2016-01-01', '2016-01-01', NULL),
 (5, 6, '2016-01-01', '2016-01-01', NULL),
@@ -413,10 +415,8 @@ INSERT INTO `bookstates` (`idbookstate`, `idbook`, `dtstart`, `dtfinished`, `ftr
 (39, 44, '2018-07-15', '2018-07-15', NULL),
 (40, 45, '2017-11-23', '2017-11-23', NULL),
 (41, 46, '2016-12-11', '2016-12-11', NULL),
-(42, 49, '2018-12-25', NULL, NULL),
 (43, 51, '2016-12-22', '2016-12-22', NULL),
 (44, 52, '2017-12-20', NULL, NULL),
-(45, 53, '2018-09-30', NULL, NULL),
 (46, 56, '2017-01-05', '2017-01-05', NULL),
 (47, 57, '2017-05-16', '2017-05-16', NULL),
 (48, 58, '2017-01-15', '2017-01-15', NULL),
@@ -489,7 +489,6 @@ INSERT INTO `bookstates` (`idbookstate`, `idbook`, `dtstart`, `dtfinished`, `ftr
 (115, 137, '2019-12-26', '2019-12-26', NULL),
 (116, 138, '2019-12-26', '2019-12-26', NULL),
 (117, 139, '2019-12-26', '2019-12-26', NULL),
-(128, 1, '2019-12-28', NULL, NULL),
 (129, 140, '2019-12-30', '2019-12-30', NULL),
 (130, 141, '2019-12-30', '2019-12-30', NULL),
 (131, 133, '2019-12-30', '2019-12-30', NULL),
@@ -515,7 +514,10 @@ INSERT INTO `bookstates` (`idbookstate`, `idbook`, `dtstart`, `dtfinished`, `ftr
 (151, 161, '2020-02-08', '2020-02-10', NULL),
 (152, 162, '2020-02-10', '2020-02-21', NULL),
 (153, 166, '2020-02-21', NULL, NULL),
-(154, 167, '2020-02-21', '2020-02-21', NULL);
+(154, 167, '2020-02-21', '2020-02-21', NULL),
+(155, 168, '2020-03-05', '2020-03-05', NULL),
+(156, 169, '2020-03-05', '2020-03-09', NULL),
+(157, 170, '2020-03-09', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -803,13 +805,13 @@ ALTER TABLE `authors`
 -- AUTO_INCREMENT voor een tabel `books`
 --
 ALTER TABLE `books`
-  MODIFY `idbook` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=168;
+  MODIFY `idbook` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=171;
 
 --
 -- AUTO_INCREMENT voor een tabel `bookstates`
 --
 ALTER TABLE `bookstates`
-  MODIFY `idbookstate` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=155;
+  MODIFY `idbookstate` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=158;
 
 --
 -- AUTO_INCREMENT voor een tabel `persons`
