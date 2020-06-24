@@ -10,3 +10,8 @@ src/administrator/test_filter.php
 src/config
 temp
 src/class/config.php
+
+/* ignore the folders */
+vendor
+/* ignore batch files */
+*.bat
