@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 09 mrt 2020 om 08:22
+-- Gegenereerd op: 15 nov 2020 om 13:30
 -- Serverversie: 10.1.37-MariaDB
 -- PHP-versie: 7.3.0
 
@@ -354,7 +354,27 @@ INSERT INTO `books` (`idbook`, `cdkeep`, `nmtitle`, `nmsubtitle`, `nmauthor`, `n
 (167, 1, 'Ragtime', NULL, 'E. L. Doctorow', 288, 9780141188171, 'EN', 0, NULL),
 (168, 1, 'Now We Shall Be Entirely Free', NULL, 'Andrew Miller', 432, 9781444784664, 'EN', 0, NULL),
 (169, 1, 'De stiefmoeder', NULL, 'Renate Dorrestein', 221, 9789057594601, 'NL', 0, NULL),
-(170, 1, 'A Long Night In Paris', NULL, 'Dov Alfon', 432, 9780857058829, 'EN', 0, NULL);
+(170, 1, 'A Long Night In Paris', NULL, 'Dov Alfon', 432, 9780857058829, 'EN', 0, NULL),
+(171, 1, 'Swift 5 for Absolute Beginners', 'Learn to Develop Apps for iOS', 'Stefan Kaczmarek', 360, 9781484248676, 'EN', 0, NULL),
+(172, 1, 'Je ongekende vermogens', 'NLP de weg van excellentie', 'Anthony Robbins', 415, 9789021588469, 'NL', 0, NULL),
+(173, 1, 'Haruki Murakami', NULL, '1q84 - de complete trilogie', 1296, 9789025445232, 'NL', 0, NULL),
+(174, 1, 'I always get my sin ', 'Het Bizarre Engels Van Nederlanders', 'Maarten Rijkens', 129, 9789044615050, 'NL', 0, NULL),
+(175, 1, 'Donkergroen bijna zwart', NULL, 'Mareike Fallwickl', 384, 9789046825181, 'NL', 0, NULL),
+(176, 1, 'Het echte leven', NULL, 'Adeline DieudonnÃ©', 208, 9789025454647, 'NL', 0, NULL),
+(177, 1, ' The Holdout', NULL, 'Graham Moore', 336, 9780593138816, 'EN', 0, NULL),
+(178, 1, 'Smeltend ijs', 'rnaldur Indridason', '', 265, 9789021409887, 'NL', 0, NULL),
+(179, 1, 'Hartland 3 - De stad en het vuur', NULL, 'Walter Lucius', 496, 9789024586776, 'NL', 0, NULL),
+(180, 1, 'Het Zoutpad', NULL, 'Raynor Winn', 320, 9789463821056, 'NL', 0, NULL),
+(181, 1, 'The Doll Factory', NULL, 'Elizabeth Macneal', 384, 9781529002409, 'EN', 0, NULL),
+(182, 1, 'The Comic Toolbox', NULL, 'John Vorhaus', 191, 9781879505216, 'EN', 0, NULL),
+(183, 1, 'The Artist\'s Way', NULL, 'Julia Cameron', 224, 9781509829477, 'EN', 0, NULL),
+(184, 1, 'Dichten doe je zo', NULL, 'Yke Schotanus ', 176, 9789045704333, 'NL', 0, NULL),
+(185, 1, 'Agent Running in the Field', NULL, 'John le Carré', 384, 9780241986547, 'EN', 0, NULL),
+(186, 1, 'Brain Droppings', NULL, 'George Carlin', 258, 9780786883219, 'EN', 0, NULL),
+(187, 1, 'The Beekeeper of Aleppo', NULL, 'Christy Lefteri', 400, 9781838770013, 'EN', 0, NULL),
+(188, 1, 'De schrijfbibliotheek 5 - Song- en liedteksten schrijven', 'van cabaret tot rock', 'Yke Schotanus', 126, 9789045700700, 'NL', 0, NULL),
+(189, 1, ' Hoe lees je een boek', 'en andere essays over literatuur ', 'Virgina Woolf', 238, 9789061317630, 'NL', 0, NULL),
+(190, 1, 'Fortunately, the Milk . . .', NULL, ' Neil Gaiman ', 160, 9781526614810, 'EN', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -513,11 +533,33 @@ INSERT INTO `bookstates` (`idbookstate`, `idbook`, `dtstart`, `dtfinished`, `ftr
 (150, 159, '2020-02-08', '2020-02-08', NULL),
 (151, 161, '2020-02-08', '2020-02-10', NULL),
 (152, 162, '2020-02-10', '2020-02-21', NULL),
-(153, 166, '2020-02-21', NULL, NULL),
+(153, 166, '2020-02-21', '2020-03-20', NULL),
 (154, 167, '2020-02-21', '2020-02-21', NULL),
 (155, 168, '2020-03-05', '2020-03-05', NULL),
 (156, 169, '2020-03-05', '2020-03-09', NULL),
-(157, 170, '2020-03-09', NULL, NULL);
+(157, 170, '2020-03-09', '2020-03-16', NULL),
+(158, 164, '2020-03-20', '2020-03-28', NULL),
+(159, 171, '2020-03-20', NULL, NULL),
+(160, 172, '2020-03-20', NULL, NULL),
+(161, 173, '2020-03-28', '2020-11-05', NULL),
+(162, 145, '2019-08-01', '2019-08-01', NULL),
+(163, 48, '2020-11-06', '2020-11-06', NULL),
+(164, 174, '2020-11-06', '2020-11-07', NULL),
+(165, 175, '2020-11-06', '2020-11-06', NULL),
+(166, 176, '2020-11-06', '2020-11-06', NULL),
+(167, 177, '2020-11-06', '2020-11-06', NULL),
+(168, 178, '2020-11-06', '2020-11-06', NULL),
+(169, 179, '2020-11-06', '2020-11-06', NULL),
+(170, 180, '2020-11-06', '2020-11-06', NULL),
+(171, 181, '2020-11-06', '2020-11-06', NULL),
+(172, 182, '2020-11-06', '2020-11-06', NULL),
+(173, 183, '2020-11-06', '2020-11-06', NULL),
+(174, 184, '2020-11-06', '2020-11-06', NULL),
+(175, 186, '2020-11-06', NULL, NULL),
+(176, 187, '2020-11-06', '2020-11-15', NULL),
+(177, 188, '2020-11-06', NULL, NULL),
+(178, 189, '2020-11-15', '2020-11-15', NULL),
+(179, 190, '2020-11-15', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -805,13 +847,13 @@ ALTER TABLE `authors`
 -- AUTO_INCREMENT voor een tabel `books`
 --
 ALTER TABLE `books`
-  MODIFY `idbook` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=171;
+  MODIFY `idbook` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=191;
 
 --
 -- AUTO_INCREMENT voor een tabel `bookstates`
 --
 ALTER TABLE `bookstates`
-  MODIFY `idbookstate` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=158;
+  MODIFY `idbookstate` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=180;
 
 --
 -- AUTO_INCREMENT voor een tabel `persons`
