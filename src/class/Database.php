@@ -53,9 +53,12 @@ class DataBase{
 		}
 
 		/* connect to the database */
-		$this->connection = mysqli_connect(NMSERVER, NMUSER, NMPASSWORD)
+		$this->connection = mysqli_connect(NMSERVER, NMUSER, NMPASSWORD, NMDATABASE)
 			or die("Kan geen verbinding maken met server \n" . mysqli_error($this->connection));
 
+
+//			print_r($this->connection);
+			return;
 		/* change character set to utf8 as read in: https://www.toptal.com/php/a-utf-8-primer-for-php-and-mysql */
 		if (!mysqli_set_charset($this->connection, "utf8")) {
 			print_r("Error loading character set utf8: " . mysqli_error($this->connection) . "\n");
@@ -64,6 +67,7 @@ class DataBase{
 		}
 
 		// select the database
+		print_r(NMDATABASE);
 		$this->database  = mysqli_select_db($this->connection, NMDATABASE)
 			or die("Kan geen database selecteren\n");
 	}
@@ -189,7 +193,7 @@ class DataBase{
 	function dropTable($table){
 		echo "dropping table...<br>";
 		$this->result = mysqli_query($this->connection, "drop table {$table}")
-		or die("Fout bij uitvoeren DROP TABLE commando");
+			or die("Fout bij uitvoeren DROP TABLE commando");
 	}
 
 	function createTable($query){

@@ -139,12 +139,12 @@ switch ($mode){
 		break;
 }
 /**
-[PHP_SELF] => /administrator/process_input.php	- contains the current file
+[PHP_SELF] => /admin/process_input.php	- contains the current file
 [HTTP_REFERER] => http://boeken.dennisvorst.nl/
 - contains the refering file, may be empty when the script file is refered directly.
-- We are referring to eihter the index.php in the root or in the administrator file.
+- We are referring to eihter the index.php in the root or in the admin file.
 [SERVER_NAME] => boeken.dennisvorst.nl			- is the name of the server we are working on
-So if the NAME_REFERER name looks like the "http://" . $_SERVER[HTTP_REFERER] . "/" we refer back to index.php otherwise we go to administrator/index.php.
+So if the NAME_REFERER name looks like the "http://" . $_SERVER[HTTP_REFERER] . "/" we refer back to index.php otherwise we go to admin/index.php.
 - So how do i refer to a file on folder up?
 - apparently the referer can also contain the querystring after the ?.
 */

@@ -1,6 +1,6 @@
 <?php
 /**
-This file resides in the administrator part of the website. Where it can be called from the root or from the administrator folder. So we need to make sure we are sending the information back to the correct function.
+This file resides in the admin part of the website. Where it can be called from the root or from the admin folder. So we need to make sure we are sending the information back to the correct function.
 The assumption is we are always sending info back to the calling functiobn.
 */
 
@@ -15,9 +15,6 @@ $urlObject->setQueryElements($_GET);
 //if (strrpos($nmpath, "/") === strlen($nmpath)-1){
 //	$nmpath .= "index.php";
 //}
-
-//print_r($_POST);
-//print_r($_GET);
 
 //switch ($mode){
 //	default:

@@ -17,7 +17,7 @@ class Bookstate
         {
             $this->_db = $db;
         }
-        
+
         if (isset($row['idbookstate'])) $this->_idbookstate = $row['idbookstate'];
         if (isset($row['idbook'])) $this->_idbook = $row['idbook'];
         if (isset($row['dtstart'])) $this->_dtstart = $row['dtstart'];
@@ -27,7 +27,7 @@ class Bookstate
     function editState() : string
     {
         ?>
-        <form action="administrator/edit_book.php" enctype="multipart/form-data" method="GET">
+        <form action="admin/edit_book.php" enctype="multipart/form-data" method="GET">
             <div class="form-group">
                 <label for="ftreview">Review</label>
                 <textarea class="form-control" rows="5" id="ftreview" name="ftreview"><?php echo $this->_ftreview; ?></textarea>
@@ -44,7 +44,7 @@ class Bookstate
 
     function showState() : string
     {
-        if ($this->_debug){print_r("Bookstates::showState");} 
+        if ($this->_debug){print_r("Bookstates::showState");}
 
         $html = "<div class='form-group'>\n";
         $html .= "  <label for='dtstart'>Gestart</label>\n";
@@ -73,7 +73,7 @@ class Bookstate
 
     function finishReading() : void
     {
-        if ($this->_debug){print_r("Bookstate::finishReading</br>\n");} 
+        if ($this->_debug){print_r("Bookstate::finishReading</br>\n");}
 
         $sql = "UPDATE bookstates SET dtfinished = '" . date('Y-m-d') . "' WHERE idbookstate = $this->_idbookstate";
         $this->_db->updateDb($sql);
@@ -81,12 +81,12 @@ class Bookstate
 
     function isReading() : bool
     {
-        if ($this->_debug){print_r("Bookstate::isReading</br>\n");} 
+        if ($this->_debug){print_r("Bookstate::isReading</br>\n");}
 
         if ($this->_idbookstate && empty($this->_dtfinished))
         {
             return true;
-        } 
+        }
         return false;
     }
 }

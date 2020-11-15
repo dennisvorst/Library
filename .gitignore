@@ -1,4 +1,4 @@
-
+src/temp/
 src/fonts/
 src/css/font-awesome.min.css
 src/google3a88b70d06293759.html
@@ -15,3 +15,7 @@ src/class/config.php
 vendor
 /* ignore batch files */
 *.bat
+src/class/Database.php
+src/admin/index.php_
+src/admin/class/LoginForm.php
+src/admin/index.php

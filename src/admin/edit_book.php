@@ -43,7 +43,7 @@ switch($nmaction){
 		header('Location: ' . $url);
 
 		break;
-		
+
 	case "update":
 		$review = $_GET['ftreview'];
 		if (empty($review)){
@@ -53,8 +53,7 @@ switch($nmaction){
 		}
 		$ftrow = $db->updateDb($sql);
 		$ftrow = $ftrow[0];
-		
-//		print_r($_GET);
+
 	case "store":
 }
 

@@ -51,10 +51,11 @@ class Library{
 //		$ftrows	= $db->updateDb($sql);
 //	}
 
-	function getBooks(string $selected_language = null, string $cdstatus = null) : void
+	function getBooks(string $selected_language = null, string $cdstatus = null, bool $unreadBooksOnly = false) : void
 	{
 		/**
 		 * Status backlog, in progress, done 
+		 * $unreadBooksOnly = True then show only the books that were not read yet.
 		 */
 
 		 /** init  */
@@ -66,26 +67,40 @@ class Library{
 		{
 			case "D" :
 				/** Done  */
-				$sql 	= "SELECT * FROM books b, bookstates bs WHERE b.idbook = bs.idbook AND bs.dtfinished IS NOT NULL";
-				$orderBy = " ORDER BY bs.dtfinished DESC";
+				$sql 	= "SELECT * FROM books b, bookstates bs"; 
+				$where = "b.idbook = bs.idbook 
+						AND bs.dtfinished IS NOT NULL";
+				$orderBy = "bs.dtfinished DESC";
 
 				break;
 			case "I" :
 				/** in progress */
-				$sql 	= "SELECT * FROM books b, bookstates bs WHERE b.idbook = bs.idbook AND bs.dtfinished IS NULL";
+				$sql 	= "SELECT * FROM books b, bookstates bs"; 
+				$where = "b.idbook = bs.idbook 
+						AND bs.dtfinished IS NULL";
 				break;
 		
 			case "B":
 			default:
 				/** backlog  */
 				$sql = "SELECT * FROM books b";
-				$orderBy = " ORDER BY b.nmtitle, b.nmsubtitle, b.nmauthor";
-		}
-		if (!empty($selected_language)){
-			$sql 	.= 	" WHERE b.cdlanguage = '" . $selected_language . "' ";
+				if ($unreadBooksOnly)
+				{
+					$where = "idbook NOT IN (SELECT idbook FROM bookstates)";
+				} 
+				$orderBy = "b.nmtitle, b.nmsubtitle, b.nmauthor";
 		}
 
-		$sql .= $where . $orderBy;
+		if (!empty($selected_language)){
+			if (empty($where))
+			{
+				$where = "b.cdlanguage = '" . $selected_language . "'";
+			} else {
+				$where .= " AND b.cdlanguage = '" . $selected_language . "'";
+			}
+		}
+
+		$sql .= (empty($where) ? "" : " WHERE " . $where) . (empty($orderBy) ? "" : " ORDER BY " . $orderBy);
 
 		$rows = $this->_db->queryDb($sql);
 		$this->_setBooks($rows);

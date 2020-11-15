@@ -61,7 +61,7 @@ class Book
 	function editBook()
 	{
 		?>
-		<form action="administrator/submit_book.php" enctype="multipart/form-data" method="POST">
+		<form action="admin/submit_book.php" enctype="multipart/form-data" method="POST">
 			<div class="form-group">
 				<label for="nmtitle">Title</label>
 				<input type="text" id="nmtitle" name="nmtitle" class="form-control"<?php
@@ -264,17 +264,17 @@ class Book
 			switch ($cdstatus)
 			{
 				case "B":
-					$html .= "      <a class='btn btn-danger' href='administrator/edit_book.php?nmaction=deleteBook&idbook=" . $this->_idbook . "'><i class='fa fa-trash-o fa-lg'></i></a>\n";
-					$html .= "      <a class='btn btn-primary' href='administrator/edit_book.php?nmaction=startReading&idbook=" . $this->_idbook . "'><i class='fa fa-arrow-right fa-lg'></i></a>\n";
-					$html .= "      <a class='btn btn-primary' href='administrator/edit_book.php?nmaction=editBook&idbook=" . $this->_idbook . "'><i class='fa fa-pencil-square-o fa-lg'></i></a>\n";
+					$html .= "      <a class='btn btn-danger' href='admin/edit_book.php?nmaction=deleteBook&idbook=" . $this->_idbook . "'><i class='fa fa-trash-o fa-lg'></i></a>\n";
+					$html .= "      <a class='btn btn-primary' href='admin/edit_book.php?nmaction=startReading&idbook=" . $this->_idbook . "'><i class='fa fa-arrow-right fa-lg'></i></a>\n";
+					$html .= "      <a class='btn btn-primary' href='admin/edit_book.php?nmaction=editBook&idbook=" . $this->_idbook . "'><i class='fa fa-pencil-square-o fa-lg'></i></a>\n";
 					break;
 				case "I":
-					$html .= "      <a class='btn btn-danger' href='administrator/edit_book.php?nmaction=stopReading&idbook=" . $this->_idbook . "'><i class='fa fa-trash-o fa-lg'></i></a>\n";
-					$html .= "      <a class='btn btn-primary' href='administrator/edit_book.php?nmaction=finishReading&idbook=" . $this->_idbook . "'><i class='fa fa-arrow-right fa-lg'></i></a>\n";
-					$html .= "      <a class='btn btn-primary' href='administrator/edit_book.php?nmaction=editState&idbook=" . $this->_idbook . "'><i class='fa fa-pencil-square-o fa-lg'></i></a>\n";
+					$html .= "      <a class='btn btn-danger' href='admin/edit_book.php?nmaction=stopReading&idbook=" . $this->_idbook . "'><i class='fa fa-trash-o fa-lg'></i></a>\n";
+					$html .= "      <a class='btn btn-primary' href='admin/edit_book.php?nmaction=finishReading&idbook=" . $this->_idbook . "'><i class='fa fa-arrow-right fa-lg'></i></a>\n";
+					$html .= "      <a class='btn btn-primary' href='admin/edit_book.php?nmaction=editState&idbook=" . $this->_idbook . "'><i class='fa fa-pencil-square-o fa-lg'></i></a>\n";
 					break;
 				case "D":
-					$html .= "      <a class='btn btn-primary' href='administrator/edit_book.php?nmaction=editState&idbook=" . $this->_idbook . "'><i class='fa fa-pencil-square-o fa-lg'></i></a>\n";
+					$html .= "      <a class='btn btn-primary' href='admin/edit_book.php?nmaction=editState&idbook=" . $this->_idbook . "'><i class='fa fa-pencil-square-o fa-lg'></i></a>\n";
 					break;
 				break;
 			}

@@ -15,10 +15,21 @@ $db = new DataBase();
 $admin = false;
 $cdlanguage = "NL";
 $selected_language = null;
+
 if (isset($_GET['language']) and $_GET['language'] !== "ALL"){
 	$selected_language = $_GET['language'];
 }
-unset($_GET['language']);
+//unset($_GET['language']);
+
+$unreadBooksOnly = False;
+if (isset($_GET['unreadBooksOnly'])){
+	$unreadBooksOnly = $_GET['unreadBooksOnly'];
+}
+//unset($_GET['unreadBooksOnly']);
+
+print_r($selected_language);
+print_r($unreadBooksOnly);
+
 
 $params = array_keys($_GET);
 foreach($params as $param){
@@ -41,11 +52,15 @@ switch ($selected_language){
 		$alltitles		= "All Titles";
 		$nltitles		= "Dutch Only";
 		$entitles		= "English Only";
+		$readtitles		= "Read books only";
 		$titlebuttonshow	= "Show Titles";
 		$titlebuttonhide	= "Hide Titles";
 		$totalpages			= " pages";
 		$totalbooks			= " books read, totalling ";
 		$languagelabel		= "Show me";
+
+		$allBooks = "All books";
+		$unreadBooks = "Unread books";
 		break;
 	default :
 		$backlog		= "Op de stapel";
@@ -56,21 +71,26 @@ switch ($selected_language){
 		$alltitles		= "Alle Titels";
 		$nltitles		= "Alleen Nederlands";
 		$entitles		= "Alleen Engels";
+		$readtitles		= "Alleen gelezen boeken";
+		
 		$titlebuttonshow	= "Toon Titels";
 		$titlebuttonhide	= "Verberg Titels";
 		$totalpages			= " pagina's";
 		$totalbooks			= " boeken gelezen, in totaal ";
 		$languagelabel		= "Toon mij";
+
+		$allBooks = "Alle boeken";
+		$unreadBooks = "Ongelezen boeken";
 		break;
 }
 
 /* init */
 $booksInLibraryObj = new Library();
-$booksInLibraryObj->getBooks($selected_language, "B");
+$booksInLibraryObj->getBooks($selected_language, "B", $unreadBooksOnly);
 $booksInLibrary = $booksInLibraryObj->createTiles($admin, "B", $selected_language);
 
 $booksInProgressObj = new Library();
-$booksInProgressObj->getBooks($selected_language, "I");
+$booksInProgressObj->getBooks($selected_language, "I", $unreadBooksOnly);
 $booksInProgress = $booksInProgressObj->createTiles($admin, "I", $selected_language);
 $numberOfBooksInProgress = $booksInProgressObj->getNumberOfBooks();
 
@@ -112,7 +132,7 @@ $booksDoneObj = new Library();
     </script>
 
 	<!-- initiate font awesome -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+	<script src="https://kit.fontawesome.com/af1eec186a.js" crossorigin="anonymous"></script>
 
 	<link rel="stylesheet" href="css/books.css">
 </head>
@@ -136,6 +156,18 @@ $booksDoneObj = new Library();
 	            <input type="radio" name="language" autocomplete="off" value="EN" onChange="document.getElementById('select_language').submit();"><?php echo $entitles; ?>
             </label>
         </div>
+		</form>
+		<form id="select_unreadBooksOnly" >
+
+        <div class="btn-group" data-toggle="buttons">
+            <label class="btn btn-primary<?php echo ($unreadBooksOnly == True ? " active" : "");?>">
+	            <input type="radio" name="unreadBooksOnly" autocomplete="off" value="True" onChange="document.getElementById('select_unreadBooksOnly').submit();"><?php echo $allBooks; ?>
+			</label>
+            <label class="btn btn-primary<?php echo ($unreadBooksOnly == False ? " active" : "");?>">
+	            <input type="radio" name="unreadBooksOnly" autocomplete="off" value="False" onChange="document.getElementById('select_unreadBooksOnly').submit();"><?php echo $unreadBooks; ?>
+			</label>
+        </div>
+
         </form>
     </nav>
 	<main>
