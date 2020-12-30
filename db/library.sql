@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 15 nov 2020 om 13:30
+-- Gegenereerd op: 30 dec 2020 om 17:45
 -- Serverversie: 10.1.37-MariaDB
 -- PHP-versie: 7.3.0
 
@@ -374,7 +374,9 @@ INSERT INTO `books` (`idbook`, `cdkeep`, `nmtitle`, `nmsubtitle`, `nmauthor`, `n
 (187, 1, 'The Beekeeper of Aleppo', NULL, 'Christy Lefteri', 400, 9781838770013, 'EN', 0, NULL),
 (188, 1, 'De schrijfbibliotheek 5 - Song- en liedteksten schrijven', 'van cabaret tot rock', 'Yke Schotanus', 126, 9789045700700, 'NL', 0, NULL),
 (189, 1, ' Hoe lees je een boek', 'en andere essays over literatuur ', 'Virgina Woolf', 238, 9789061317630, 'NL', 0, NULL),
-(190, 1, 'Fortunately, the Milk . . .', NULL, ' Neil Gaiman ', 160, 9781526614810, 'EN', 0, NULL);
+(190, 1, 'Fortunately, the Milk . . .', NULL, ' Neil Gaiman ', 160, 9781526614810, 'EN', 0, NULL),
+(191, 1, 'De wilde stilte', NULL, 'Raynor Winn', 320, 9789463821049, 'NL', 0, NULL),
+(192, 1, 'De meeste mensen deugen ', 'een nieuwe geschiedenis van de mens', 'Rutger Bregman', 528, 9789082942187, 'NL', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -436,7 +438,7 @@ INSERT INTO `bookstates` (`idbookstate`, `idbook`, `dtstart`, `dtfinished`, `ftr
 (40, 45, '2017-11-23', '2017-11-23', NULL),
 (41, 46, '2016-12-11', '2016-12-11', NULL),
 (43, 51, '2016-12-22', '2016-12-22', NULL),
-(44, 52, '2017-12-20', NULL, NULL),
+(44, 52, '2017-12-20', '2020-12-30', NULL),
 (46, 56, '2017-01-05', '2017-01-05', NULL),
 (47, 57, '2017-05-16', '2017-05-16', NULL),
 (48, 58, '2017-01-15', '2017-01-15', NULL),
@@ -555,11 +557,14 @@ INSERT INTO `bookstates` (`idbookstate`, `idbook`, `dtstart`, `dtfinished`, `ftr
 (172, 182, '2020-11-06', '2020-11-06', NULL),
 (173, 183, '2020-11-06', '2020-11-06', NULL),
 (174, 184, '2020-11-06', '2020-11-06', NULL),
-(175, 186, '2020-11-06', NULL, NULL),
+(175, 186, '2020-11-06', '2020-12-03', NULL),
 (176, 187, '2020-11-06', '2020-11-15', NULL),
 (177, 188, '2020-11-06', NULL, NULL),
 (178, 189, '2020-11-15', '2020-11-15', NULL),
-(179, 190, '2020-11-15', NULL, NULL);
+(179, 190, '2020-11-15', '2020-11-16', NULL),
+(180, 191, '2020-11-17', '2020-12-01', NULL),
+(181, 185, '2020-12-01', '2020-12-30', NULL),
+(182, 192, '2020-12-30', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -847,13 +852,13 @@ ALTER TABLE `authors`
 -- AUTO_INCREMENT voor een tabel `books`
 --
 ALTER TABLE `books`
-  MODIFY `idbook` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=191;
+  MODIFY `idbook` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=193;
 
 --
 -- AUTO_INCREMENT voor een tabel `bookstates`
 --
 ALTER TABLE `bookstates`
-  MODIFY `idbookstate` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=180;
+  MODIFY `idbookstate` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=183;
 
 --
 -- AUTO_INCREMENT voor een tabel `persons`
