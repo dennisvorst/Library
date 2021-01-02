@@ -12,8 +12,12 @@ class HtmlLibraryTest extends TestCase
 
     public function testClassLibraryCanBeInstantiated()
     {
-        $object = new Library();
-        $this->assertInstanceOf($object, Library::class);
+        /** create a db stub */
+        $db = $this->createmock(Database::class);
+
+        /** Library must have a stub */
+        $object = new Library($db);
+        $this->assertInstanceOf(Library::class, $object);
     }
 }
 ?>

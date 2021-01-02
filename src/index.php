@@ -19,17 +19,11 @@ $selected_language = null;
 if (isset($_GET['language']) and $_GET['language'] !== "ALL"){
 	$selected_language = $_GET['language'];
 }
-//unset($_GET['language']);
 
 $unreadBooksOnly = False;
 if (isset($_GET['unreadBooksOnly'])){
 	$unreadBooksOnly = $_GET['unreadBooksOnly'];
 }
-//unset($_GET['unreadBooksOnly']);
-
-print_r($selected_language);
-print_r($unreadBooksOnly);
-
 
 $params = array_keys($_GET);
 foreach($params as $param){
@@ -85,16 +79,16 @@ switch ($selected_language){
 }
 
 /* init */
-$booksInLibraryObj = new Library();
+$booksInLibraryObj = new Library($db);
 $booksInLibraryObj->getBooks($selected_language, "B", $unreadBooksOnly);
 $booksInLibrary = $booksInLibraryObj->createTiles($admin, "B", $selected_language);
 
-$booksInProgressObj = new Library();
+$booksInProgressObj = new Library($db);
 $booksInProgressObj->getBooks($selected_language, "I", $unreadBooksOnly);
 $booksInProgress = $booksInProgressObj->createTiles($admin, "I", $selected_language);
 $numberOfBooksInProgress = $booksInProgressObj->getNumberOfBooks();
 
-$booksDoneObj = new Library();
+$booksDoneObj = new Library($db);
 
 ?>
 <!doctype html>

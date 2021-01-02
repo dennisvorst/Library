@@ -3,53 +3,13 @@ require_once "Database.php";
 
 class Library{
 	private $_db;
-//	private $_states;
 	private $_books = [];
 	private $_years = [];
 
-	function __construct(Database $db = null)
+	function __construct(Database $db)
 	{
-		if (empty($db))
-		{
-			$this->_db = new Database();
-
-		} else {
-			$this->_db = $db;
-
-		}
+		$this->_db = $db;
 	}
-
-//	function getBook($idbook){
-		/** get a book filtered by id */
-//		$booklist	= "";
-//		$sql 		= "SELECT * FROM books WHERE idbook = " . $idbook ;
-//		$ftrows 	=  $this->_db->queryDb($sql);
-//		return $ftrows[0];
-//	}
-
-//	function getBookStates($idbook) : array
-//	{
-//		$sql 	= "SELECT * FROM bookstates WHERE idbook = $idbook ORDER BY dtstart";
-//		return $this->_db->queryDb($sql);
-//	}
-
-//	function startReading(int $id)
-//	{
-//		$sql = "INSERT INTO `bookstates` (`idbookstate`, `idbook`, `cdkeep`, `cdlanguage`, `cdstatus`, `dtstart`, `dtfinished`, `ftreview`) VALUES (NULL, $id, '1', 'NL', 'B', '" . date('Y-m-d') . "', NULL, NULL)";
-//		$ftrows	= $db->insertQuery($sql);
-//	}
-
-//	function finishReading(int $id)
-//	{
-//		$sql = "UPDATE bookstatus SET finishdate =  WHERE iodbook = $id";
-//		$ftrows	= $db->updateDb($sql);
-//	}
-
-//	function stopReading(int $id)
-//	{
-//		$sql = "DELETE FROM bookstatus WHERE iodbook = $id";
-//		$ftrows	= $db->updateDb($sql);
-//	}
 
 	function getBooks(string $selected_language = null, string $cdstatus = null, bool $unreadBooksOnly = false) : void
 	{
